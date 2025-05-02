@@ -18,6 +18,15 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Unauthorized from "./pages/Unauthorized";
 
+// Import additional dashboard pages
+import SupplyChainDetails from "./pages/SupplyChainDetails";
+import SupplierDashboard from "./pages/SupplierDashboard";
+import SupplierUpload from "./pages/SupplierUpload";
+import AuditorDashboard from "./pages/AuditorDashboard";
+import AuditorNoteEditor from "./pages/AuditorNoteEditor";
+import AdminDashboard from "./pages/AdminDashboard";
+import UserManagement from "./pages/UserManagement";
+
 // Initialize QueryClient for React Query
 const queryClient = new QueryClient();
 
@@ -39,12 +48,31 @@ const App = () => (
               <Route path="/unauthorized" element={<Unauthorized />} />
             </Route>
             
-            {/* Protected routes - no nested Layout since dashboards have their own layout */}
-            <Route element={<ProtectedRoute />}>
+            {/* Protected routes for SME/Brand */}
+            <Route element={<ProtectedRoute allowedRoles={["SME"]} />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/simulate" element={<Simulate />} />
               <Route path="/results" element={<Results />} />
               <Route path="/reports" element={<Reports />} />
+              <Route path="/supply-chain/:id" element={<SupplyChainDetails />} />
+            </Route>
+            
+            {/* Protected routes for Supplier */}
+            <Route element={<ProtectedRoute allowedRoles={["Supplier"]} />}>
+              <Route path="/supplier" element={<SupplierDashboard />} />
+              <Route path="/supplier/upload" element={<SupplierUpload />} />
+            </Route>
+            
+            {/* Protected routes for Auditor */}
+            <Route element={<ProtectedRoute allowedRoles={["Auditor"]} />}>
+              <Route path="/auditor" element={<AuditorDashboard />} />
+              <Route path="/auditor/note/:id" element={<AuditorNoteEditor />} />
+            </Route>
+            
+            {/* Protected routes for Admin */}
+            <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/users" element={<UserManagement />} />
             </Route>
             
             {/* 404 page */}
