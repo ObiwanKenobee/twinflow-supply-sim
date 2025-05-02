@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +9,12 @@ import { useToast } from "@/components/ui/use-toast";
 import { SimulationResponse } from "@/services/graniteApi";
 import { fetchSupplyChain, deleteSupplyChain } from "@/services/supplyChainApi";
 
+// Extended type to include the name property
+interface ExtendedSimulationResponse extends SimulationResponse {
+  id: string;
+  name: string;
+}
+
 export default function SupplyChainDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -17,7 +22,7 @@ export default function SupplyChainDetails() {
   
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [supplyChain, setSupplyChain] = useState<SimulationResponse | null>(null);
+  const [supplyChain, setSupplyChain] = useState<ExtendedSimulationResponse | null>(null);
 
   useEffect(() => {
     if (id) {
@@ -99,7 +104,7 @@ export default function SupplyChainDetails() {
   return (
     <div className="container py-8 space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">{supplyChain.name || "Supply Chain Details"}</h1>
+        <h1 className="text-3xl font-bold">{supplyChain?.name || "Supply Chain Details"}</h1>
         
         <div className="flex space-x-2">
           <Button variant="outline" onClick={handleExportReport}>

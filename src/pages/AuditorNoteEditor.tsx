@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -28,12 +27,15 @@ import {
 import { fetchSupplyChainForAudit, createAuditNote, fetchAuditNotes } from "@/services/auditorApi";
 import { Badge } from "@/components/ui/badge";
 
+type NoteType = 'comment' | 'flag' | 'recommendation';
+type SeverityLevel = 'low' | 'medium' | 'high';
+
 interface AuditNote {
   id: string;
   supplyChainId: string;
-  noteType: 'comment' | 'flag' | 'recommendation';
+  noteType: NoteType;
   content: string;
-  severity?: 'low' | 'medium' | 'high';
+  severity?: SeverityLevel;
   status: 'draft' | 'submitted' | 'resolved';
   createdAt: string;
   updatedAt: string;
@@ -66,10 +68,14 @@ export default function AuditorNoteEditor() {
   const [supplyChain, setSupplyChain] = useState<SupplyChainDetail | null>(null);
   const [auditNotes, setAuditNotes] = useState<AuditNote[]>([]);
   
-  const [newNote, setNewNote] = useState({
-    noteType: 'comment' as const,
+  const [newNote, setNewNote] = useState<{
+    noteType: NoteType;
+    content: string;
+    severity: SeverityLevel;
+  }>({
+    noteType: 'comment',
     content: '',
-    severity: 'medium' as const,
+    severity: 'medium',
   });
 
   useEffect(() => {
@@ -203,7 +209,7 @@ export default function AuditorNoteEditor() {
   };
 
   return (
-    <DashboardLayout title={`Audit Review: ${supplyChain.companyName}`}>
+    <DashboardLayout title={`Audit Review: ${supplyChain?.companyName || ''}`}>
       <div className="mb-6">
         <Button 
           variant="ghost" 
@@ -364,7 +370,7 @@ export default function AuditorNoteEditor() {
                     <Label>Note Type</Label>
                     <Select 
                       value={newNote.noteType}
-                      onValueChange={(value: 'comment' | 'flag' | 'recommendation') => 
+                      onValueChange={(value: NoteType) => 
                         setNewNote({...newNote, noteType: value})
                       }
                     >
@@ -384,7 +390,7 @@ export default function AuditorNoteEditor() {
                       <Label>Severity</Label>
                       <Select 
                         value={newNote.severity}
-                        onValueChange={(value: 'low' | 'medium' | 'high') => 
+                        onValueChange={(value: SeverityLevel) => 
                           setNewNote({...newNote, severity: value})
                         }
                       >

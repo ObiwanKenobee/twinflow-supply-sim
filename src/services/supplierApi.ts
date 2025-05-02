@@ -1,7 +1,7 @@
 
 // Mock API endpoints for supplier operations
 
-interface Operation {
+export interface Operation {
   id: string;
   name: string;
   description: string;

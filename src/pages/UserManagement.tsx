@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -31,7 +30,8 @@ import {
   PlusCircle, 
   Search, 
   UserCheck, 
-  UserX 
+  UserX,
+  User
 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchUsers, updateUserStatus, updateUserRole } from "@/services/adminApi";

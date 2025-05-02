@@ -1,10 +1,13 @@
-
 import { SimulationResponse } from "./graniteApi";
 
-// Mock API endpoints for supply chain management
+// Add additional properties to the existing SimulationResponse interface
+interface ExtendedSimulationResponse extends SimulationResponse {
+  id: string;
+  name: string;
+}
 
 // Fetch a single supply chain by ID
-export const fetchSupplyChain = async (id: string): Promise<SimulationResponse> => {
+export const fetchSupplyChain = async (id: string): Promise<ExtendedSimulationResponse> => {
   // In a real app, this would be an API call
   console.log(`Fetching supply chain with ID: ${id}`);
   
@@ -67,7 +70,7 @@ export const fetchSupplyChain = async (id: string): Promise<SimulationResponse> 
 };
 
 // Fetch all supply chains for the current user
-export const fetchAllSupplyChains = async (): Promise<SimulationResponse[]> => {
+export const fetchAllSupplyChains = async (): Promise<ExtendedSimulationResponse[]> => {
   // In a real app, this would be an API call
   console.log("Fetching all supply chains");
   
@@ -121,7 +124,7 @@ export const fetchAllSupplyChains = async (): Promise<SimulationResponse[]> => {
 };
 
 // Create a new supply chain
-export const createSupplyChain = async (data: any): Promise<SimulationResponse> => {
+export const createSupplyChain = async (data: any): Promise<ExtendedSimulationResponse> => {
   console.log("Creating supply chain with data:", data);
   
   // Mock response - in a real app, this would post to an API
@@ -141,7 +144,7 @@ export const createSupplyChain = async (data: any): Promise<SimulationResponse> 
 };
 
 // Update an existing supply chain
-export const updateSupplyChain = async (id: string, data: any): Promise<SimulationResponse> => {
+export const updateSupplyChain = async (id: string, data: any): Promise<ExtendedSimulationResponse> => {
   console.log(`Updating supply chain ${id} with data:`, data);
   
   // Mock response - in a real app, this would put to an API
