@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,14 +7,7 @@ import { ProcessFlowViewer } from "@/components/ProcessFlowViewer";
 import { RiskDashboard } from "@/components/RiskDashboard";
 import { Loader2, Pen, Trash2, Download } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { SimulationResponse } from "@/services/graniteApi";
-import { fetchSupplyChain, deleteSupplyChain } from "@/services/supplyChainApi";
-
-// Extended type to include the name property
-interface ExtendedSimulationResponse extends SimulationResponse {
-  id: string;
-  name: string;
-}
+import { fetchSupplyChain, deleteSupplyChain, ExtendedSimulationResponse } from "@/services/supplyChainApi";
 
 export default function SupplyChainDetails() {
   const { id } = useParams<{ id: string }>();

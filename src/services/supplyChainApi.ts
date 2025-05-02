@@ -6,7 +6,7 @@ interface ExtendedSimulationResponse extends SimulationResponse {
   id: string;
   name: string;
   description?: string; // Add description property as optional
-  overallRisk?: string;
+  // We removed overallRisk from here since it's already in SimulationResponse with the correct type
 }
 
 // Fetch a single supply chain by ID
@@ -65,7 +65,7 @@ export const fetchSupplyChain = async (id: string): Promise<ExtendedSimulationRe
             label: "Logistics (4 days)"
           }
         ],
-        overallRisk: "medium",
+        overallRisk: "medium", // This now uses the type from SimulationResponse
         summary: "This supply chain has moderate risk factors, primarily in the spinning stage in Vietnam."
       });
     }, 500);
