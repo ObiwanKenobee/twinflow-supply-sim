@@ -1,9 +1,12 @@
+
 import { SimulationResponse } from "./graniteApi";
 
 // Add additional properties to the existing SimulationResponse interface
 interface ExtendedSimulationResponse extends SimulationResponse {
   id: string;
   name: string;
+  description?: string; // Add description property as optional
+  overallRisk?: string;
 }
 
 // Fetch a single supply chain by ID
