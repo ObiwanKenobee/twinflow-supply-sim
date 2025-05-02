@@ -9,40 +9,40 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-sm mb-3">Product</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Features</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Pricing</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Use Cases</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Roadmap</Link></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Features</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Pricing</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Use Cases</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Roadmap</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-sm mb-3">Resources</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Documentation</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">API Reference</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Blog</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Tutorials</Link></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Documentation</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">API Reference</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Blog</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Tutorials</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-sm mb-3">Company</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">About</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Careers</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Contact</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Partners</Link></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">About</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Careers</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Contact</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Partners</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-sm mb-3">Legal</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Privacy</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Terms</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Security</Link></li>
-              <li><Link to="#" className="text-muted-foreground hover:text-foreground text-sm">Compliance</Link></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Privacy</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Terms</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Security</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground text-sm">Compliance</a></li>
             </ul>
           </div>
         </div>
